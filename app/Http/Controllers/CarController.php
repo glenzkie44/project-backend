@@ -15,7 +15,7 @@ class CarController extends Controller
     public function search(Request $request) {
         $request->validate(['key'=>'string|required']);
 
-        $cars = Car::where('brand','like',"%$request->key%")
+        $cars = Car::where('model','like',"%$request->key%")
             ->orWhere('description','like',"%$request->key%")->get();
 
         return response()->json($cars, 200);
@@ -56,7 +56,7 @@ class CarController extends Controller
     }
 
     public function index() {
-        $cars = Car::orderBy('name')->get();
+        $cars = Car::orderBy('brand')->get();
         return response()->json($cars, 200);
     }
 }
