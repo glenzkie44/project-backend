@@ -18,7 +18,7 @@ class CreateCarsTable extends Migration
             $table->string('brand');
             $table->string('model');
             $table->string('type');
-            $table->integer('price');
+            $table->decimal('price',12,2);
             $table->date("acquired_on");
             $table->timestamps();
         });
